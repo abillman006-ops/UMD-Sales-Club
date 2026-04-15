@@ -1,0 +1,455 @@
+/* =========================================
+   Global & Base Styles
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+    --umd-maroon: #7A0019;
+    --umd-gold: #FFCC33;
+    --text-dark: #333333;
+    --text-light: #f8f9fa;
+    --bg-light: #f8f9fa;
+    --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e0e5ec 100%);
+    --card-bg: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* Link Styling */
+a {
+    color: var(--umd-maroon);
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+    color: var(--umd-gold);
+}
+
+/* =========================================
+   Typography
+========================================= */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--umd-maroon);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+}
+
+/* =========================================
+   Utility Classes
+========================================= */
+
+.glassmorphism {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(122, 0, 25, 0.05);
+}
+
+/* =========================================
+   Navbar
+========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(122, 0, 25, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--umd-gold);
+}
+
+.logo span {
+    color: #fff;
+    margin-left: 5px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: #fff;
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--umd-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--umd-gold);
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+
+.btn, .contact-btn, .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary, .primary-gradient {
+    background: linear-gradient(135deg, #7A0019 0%, #a30022 100%);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(122, 0, 25, 0.2);
+}
+
+.btn-primary:hover, .primary-gradient:hover {
+    background: linear-gradient(135deg, #a30022 0%, #7A0019 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(122, 0, 25, 0.3);
+}
+
+.btn-secondary {
+    background: var(--umd-gold);
+    color: var(--umd-maroon) !important;
+    box-shadow: 0 8px 20px rgba(255, 204, 51, 0.3);
+}
+
+.btn-secondary:hover {
+    background: #ffdb70;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 204, 51, 0.4);
+}
+
+/* =========================================
+   Hero Section
+========================================= */
+
+.hero {
+    min-height: 80vh;
+    background: var(--umd-maroon);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10%;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 600px;
+    animation: fadeIn 1s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.8;
+}
+
+.hero-logo {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* =========================================
+   Content Sections
+========================================= */
+
+.section {
+    padding: 6rem 5%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(122, 0, 25, 0.12);
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    color: var(--umd-maroon);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card ul {
+    list-style-position: inside;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    flex-grow: 1;
+}
+
+.card ul li {
+    margin-bottom: 0.5rem;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.card iframe,
+.card .responsive-video {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.card img:last-child {
+    margin-bottom: 0;
+}
+
+.card img:hover {
+    transform: scale(1.03);
+}
+
+/* =========================================
+   Call To Action (CTA)
+========================================= */
+
+.cta {
+    background: linear-gradient(135deg, #7A0019 0%, #a30022 100%);
+    padding: 6rem 10%;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+}
+
+.cta h2 {
+    color: var(--umd-gold);
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    color: rgba(255,255,255,0.9);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   Footer
+========================================= */
+
+footer {
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 1rem;
+}
+
+footer p {
+    opacity: 0.8;
+}
+
+/* =========================================
+   Contact Page Specific
+========================================= */
+
+.contact-section {
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+.contact-header {
+    margin-bottom: 4rem;
+}
+
+.contact-title {
+    font-size: 3.5rem;
+    color: var(--umd-maroon);
+}
+
+.contact-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(122, 0, 25, 0.12);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--umd-gold);
+    margin-bottom: 1.5rem;
+    background: var(--umd-maroon);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(122, 0, 25, 0.2);
+}
+
+.social-links-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+}
+
+.linkedin-btn {
+    background-color: #0077b5;
+    color: white !important;
+    box-shadow: 0 6px 15px rgba(0, 119, 181, 0.2);
+}
+
+.linkedin-btn:hover {
+    background-color: #005582;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 119, 181, 0.3);
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white !important;
+    box-shadow: 0 6px 15px rgba(220, 39, 67, 0.2);
+}
+
+.instagram-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(220, 39, 67, 0.3);
+}
